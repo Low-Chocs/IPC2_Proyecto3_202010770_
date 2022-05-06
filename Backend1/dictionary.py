@@ -266,3 +266,26 @@ class getters:
                 json.append(mes)
         return jsonify(json)
 
+    def json_generator_status_negative(self):
+        json = []
+
+        for i in self.object:
+            for j in i.get_negative_words():
+        
+                mes = {
+                    'Palabra Negativa': j
+                }
+                json.append(mes)
+        return jsonify(json)
+    
+    def get_messages_company(self):
+        json = []
+
+        for i in self.object:
+                mes = {
+                    'Compañia': i.get_name(),
+                    'Servicios': i.get_services()
+                }
+                json.append(mes)
+        return jsonify(json)
+
